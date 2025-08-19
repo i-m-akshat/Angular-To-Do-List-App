@@ -1,0 +1,33 @@
+<div class="col-12 px-5">
+    <div class="row justify-content-center align-items-stretch">
+
+        <div class="col-6 d-flex">
+            <div class="card flex-fill">
+                <div class="card-body">
+                    <app-form (todoAdd)="handleAdd($event)"></app-form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6 d-flex">
+            <div class="card flex-fill">
+                <div class="card-body">
+                    @if(todos.length>0){
+                    <h5 class="text-center">Your Todos</h5>
+                    }@else{
+                    <h5 class="text-center">Nothing to show</h5>
+                    }
+
+                    <ul class="list-group">
+                        @for (todo of todos; track todo.sno; let i = $index) {
+                        <app-todos-items [todo]="todo" [index]="i" (todoDelete)="handleDelete($event)"
+                            (todoDone)="handleDone($event)">
+                        </app-todos-items>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

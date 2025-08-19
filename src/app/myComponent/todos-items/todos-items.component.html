@@ -1,0 +1,31 @@
+<!-- <li class="list-group-item d-flex justify-content-between align-items-center " [class.bg-success]="!todo.active"
+    [class.text-white]="!todo.active"> -->
+<!--or we can do this -->
+<li class="list-group-item d-flex justify-content-between align-items-center " [ngClass]="{
+        'bg-success text-white':!todo.active,'bg-light':todo.active
+    }">
+    <!-- Left side: Todo info -->
+    <div>
+        <h6 class="mb-1">Todo #{{ index + 1 }}</h6>
+        <h5 class="mb-1" [class.strike]="!todo.active">{{ todo.title }}</h5>
+        <p class="mb-1 " [class.text-muted]="todo.active" [class.strike]="!todo.active">{{ todo.desc }}</p>
+    </div>
+
+    <!-- Right side: Action button -->
+    <a class="btn btn-sm " [ngClass]="{'btn-outline-danger':todo.active,'btn-danger':!todo.active}"
+        [class.text-white]="!todo.active" (click)="onClick()" role="button">
+        Delete
+    </a>
+
+
+    @if (todo.active) {
+    <!-- <a class="btn btn-sm btn-outline-success" (click)="handleDone()" role="button">
+        Done
+    </a> -->
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="handleDone()">
+        <label class="form-check-label" for="exampleCheck1">Mark as done</label>
+    </div>
+    }
+
+</li>

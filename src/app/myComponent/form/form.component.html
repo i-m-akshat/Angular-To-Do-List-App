@@ -1,0 +1,20 @@
+<form (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+        <label for="todoTitle" class="form-label">Todo Title</label>
+        <input type="text" [(ngModel)]="title" name="title" class="form-control" id="todoTitle"
+            placeholder="Enter todo title">
+    </div>
+
+    <div class="mb-3">
+        <label for="todoDesc" class="form-label">Description</label>
+        <textarea class="form-control" [(ngModel)]="desc" name="desc" id="todoDesc" rows="3"
+            placeholder="Enter details..."></textarea>
+    </div>
+
+    <!-- <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="todoActive">
+        <label class="form-check-label" for="todoActive">Mark as Active</label>
+    </div> -->
+
+    <button type="submit" class="btn btn-success">Add Todo</button>
+</form>
